@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import {
   Card,
   CardImg,
@@ -32,11 +32,11 @@ function RenderCampsite({ campsite }) {
   );
 }
 
-class CommentForm extends Component{
-  constructor(props){
+class CommentForm extends Component {
+  constructor(props) {
     super(props);
-    this.state={
-      isModalOpen:false
+    this.state = {
+      isModalOpen: false,
     };
   }
 
@@ -60,7 +60,7 @@ class CommentForm extends Component{
         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
           <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
           <ModalBody>
-            <LocalForm onSubmit={(values) => this.handleSubmit(values)}> 
+            <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
               <div className="form-group">
                 <Label htmlFor="rating">Rating</Label>
                 <Control.select
@@ -85,12 +85,11 @@ class CommentForm extends Component{
                   placeholder="Your Name"
                   className="form-control"
                   validators={{
-                    required, 
+                    required,
                     minLength: minLength(2),
-                    maxLength: maxLength(15)
+                    maxLength: maxLength(15),
                   }}
-                >
-                </Control.text>
+                ></Control.text>
                 <Errors
                   className="text-danger"
                   model=".author"
@@ -111,10 +110,11 @@ class CommentForm extends Component{
                   name="text"
                   className="form-control"
                   rows="6"
-                >
-                </Control.textarea>
+                ></Control.textarea>
               </div>
-              <Button type="submit" color="primary">Submit</Button>
+              <Button type="submit" color="primary">
+                Submit
+              </Button>
             </LocalForm>
           </ModalBody>
         </Modal>
@@ -144,7 +144,7 @@ function RenderComments({ comments }) {
               </div>
             );
           })}
-          <CommentForm/>
+          <CommentForm />
         </div>
       </div>
     );
